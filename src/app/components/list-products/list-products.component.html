@@ -1,0 +1,45 @@
+<div class="container px-0">
+  <div class="row d-flex justify-content-center navbar">
+    <div class="col-lg-11">
+      <div class="d-flex">
+        <div class="p-2 flex-grow-1 text-white">
+          <p class="h2">Gestión de empresas</p>
+          <p class="h5">Agrega, edita o elimina número de usuarios.</p>
+        </div>
+        <div class="p-2 d-flex align-items-center">
+          <button routerLink="/add">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-11">
+      <table class="table table-dark table-striped">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Nit</th>
+            <th scope="col">Optiones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listProducts; let i = index">
+            <td>{{ i + 1 }}.</td>
+            <td>{{ item.estado }}</td>
+            <td>{{ item.nombre_comercial }}</td>
+            <td class="text-break">{{ item.correo }}</td>
+            <td>{{ item.nit }}</td>
+            <td>
+              <i type="button" class="bi bi-pencil-square me-4 cursor-pointer" routerLink="/edit/{{item.id}}"></i>
+              <i type="button" class="bi bi-trash cursor-pointer" (click)="deleteClient(item.id!)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h5 *ngIf="listProducts.length == 0" style="text-align: center; margin-bottom: 15px;">Sin registros</h5>
+    </div>
+  </div>
+</div>

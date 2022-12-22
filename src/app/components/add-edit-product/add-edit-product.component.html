@@ -1,0 +1,83 @@
+
+
+<form [formGroup]="form" (ngSubmit)="addClient()">
+<div class="row">
+    <div class="col-4">
+        <h1>{{operacion}} Empresa</h1>
+        <h6>Utiliza los campos para actualizar los datos</h6>
+    </div>
+    <div class="col-7">
+    <div class="row my-4"  >
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button routerLink="/" type="button">Cancelar</button> 
+            <button [disabled]="form.invalid" type="submit" >Guardar</button>
+        </div>
+    </div>
+    </div>
+</div>
+    <div class="row">
+        <div class="col-5">
+                <label for="formGroupExampleInput" class="form-label">Nombre Comercial</label>
+                <input formControlName="nombre_comercial" type="text" class="form-control" id="nombre_comercial" >
+                <span *ngIf="form.get('nombre_comercial')?.hasError('required') && form.get('nombre_comercial')?.touched">
+                    El campo es Requerido
+                </span>
+        </div>
+        <div class="col-6">
+            <label for="formGroupExampleInput" class="form-label">Razon Social</label>
+            <input formControlName="razon_social" type="text" class="form-control" id="razon_social">
+            <span *ngIf="form.get('razon_social')?.hasError('required') && form.get('razon_social')?.touched">
+                El campo es Requerido
+            </span>
+     </div>
+    
+</div>
+<div class="row">
+    <div class="col-5">
+            <label for="formGroupExampleInput" class="form-label">Teléfono</label>
+            <input formControlName="telefono" type="text" class="form-control" id="telefono" >
+            <span *ngIf="form.get('telefono')?.hasError('required') && form.get('telefono')?.touched">
+                El campo es Requerido
+            </span>
+    </div>
+    <div class="col-6">
+        <label for="formGroupExampleInput" class="form-label">Correo Electronico</label>
+        
+        <input  formControlName="email" type="text" class="form-control" id="email" [readOnly]="disable"  >
+        <span *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+            El campo es Requerido
+        </span>
+ </div>
+
+</div>
+<div class="row">
+    <div class="col-5">
+            <label for="formGroupExampleInput" class="form-label">Nit</label>
+            <input formControlName="nit" type="text" class="form-control" id="nit">
+            <span *ngIf="form.get('nit')?.hasError('required') && form.get('nit')?.touched">
+                El campo es Requerido
+            </span>
+    </div>
+    <div class="col-6">
+        <label for="formGroupExampleInput" class="form-label">Estado</label>
+        <input formControlName="estado" type="text" class="form-control" id="estado" >
+        <span *ngIf="form.get('estado')?.hasError('required') && form.get('estado')?.touched">
+            El campo es Requerido
+        </span>
+ </div>
+
+</div>
+<div class="row">
+    <div class="col-11">
+            <label for="formGroupExampleInput" class="form-label">Dirección</label>
+            <input formControlName="direccion" type="text" class="form-control" id="direccion"  >
+            <span *ngIf="form.get('direccion')?.hasError('required') && form.get('direccion')?.touched">
+                El campo es Requerido
+            </span>
+    </div>
+    <div class="col-1">
+ </div>
+
+</div>
+</form>
+
